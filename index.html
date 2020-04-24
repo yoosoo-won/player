@@ -2,6 +2,12 @@
 <html>
   <body>
     <video autoplay muted loop src="https://storage.googleapis.com/static.fastcampus.co.kr/dev/uploads/202004/164227-39/flower.mp4"></video>
-    <script></script>
+    <script>
+      const $player = document.querySelector('video');
+
+      if ($player.paused) {
+        $player.play();
+      }
+    </script>
   </body>
 </html>
