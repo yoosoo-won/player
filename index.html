@@ -22,15 +22,15 @@
           if ($player.paused) {
             const promise = $player.play();
 
-            if (promise !== undefined) {
-                promise.catch(error => {
-                  promise.play();
-                    // Auto-play was prevented
-                    // Show a UI element to let the user manually start playback
-                }).then(() => {
-                    promise.play();
-                });
-            }
+            // if (promise !== undefined) {
+            //     promise.catch(error => {
+            //       promise.play();
+            //         // Auto-play was prevented
+            //         // Show a UI element to let the user manually start playback
+            //     }).then(() => {
+            //         promise.play();
+            //     });
+            // }
           }
           document.querySelector('body').appendChild($player);
         });
