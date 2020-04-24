@@ -3,11 +3,24 @@
   <body>
     <video autoplay muted loop src="https://storage.googleapis.com/static.fastcampus.co.kr/dev/uploads/202004/164227-39/flower.mp4"></video>
     <script>
+      // const $player = document.createElement('video');
       const $player = document.querySelector('video');
+      // $player.setAttribute('url', 'https://storage.googleapis.com/static.fastcampus.co.kr/dev/uploads/202004/164227-39/flower.mp4');
+      $player.setAttribute('muted', '');
+      // $player.muted = true;
+      // $player.loop = true;
 
-      if ($player.paused) {
-        $player.play();
-      }
+        window.addEventListener("load", function(event) {
+          console.log("All resources finished loading!");
+          if ($player.paused) {
+            $player.play().then(_ => {
+              console.log(_);
+            }).catch(error => {
+              console.log(error);
+            })
+          }
+          document.querySelector('body').appendChild($player);
+        });
     </script>
   </body>
 </html>
