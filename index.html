@@ -8,19 +8,26 @@
     </style>
   </head>
   <body>
-    <video autoplay muted loop src="http://devgp.vrixon.com/vrixplayer/comm/res_sample/sampleMV_720p.mp4"></video>
+    <video id="player" poster="" preload="metadata" playsinline muted src="http://devgp.vrixon.com/vrixplayer/comm/res_sample/sampleMV_720p.mp4" style="width: 100%;height: 100%;"></video>
+    <!-- 햐 -->
     <script>
       // const $player = document.createElement('video');
       const $player = document.querySelector('video');
+      const { offsetTop, offsetHeight } = document.querySelector('body');
+      const { pageYOffset, innerHeight } = document;
+      const isVisible = pageYOffset + innerHeight >= offsetTop && pageYOffset <= offsetTop + offsetHeight;
+
       // $player.setAttribute('url', 'https://storage.googleapis.com/static.fastcampus.co.kr/dev/uploads/202004/164227-39/flower.mp4');
       $player.setAttribute('muted', '');
       // $player.muted = true;
       // $player.loop = true;
-
         window.addEventListener("load", function(event) {
           console.log("All resources finished loading!");
+          // document.querySelector('body').appendChild($player);
+        });
+        document.addEventListener('scroll', () => {
           if ($player.paused) {
-            const promise = $player.play();
+            // const promise = $player.play();
 
             // if (promise !== undefined) {
             //     promise.catch(error => {
@@ -32,7 +39,6 @@
             //     });
             // }
           }
-          document.querySelector('body').appendChild($player);
         });
     </script>
   </body>
